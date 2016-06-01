@@ -1,0 +1,28 @@
+---
+title: "Analytics Edge- Takeaway Notes"
+author: "Jay Parchuré"
+date: "June 1, 2016"
+output: html_document
+---
+##Linear Regression
+* **Baseline Model**- A model with no variables, usually set as a measure of central tendency (Mean, median)
+
+* **SSE**- Square Sum of Errors
+
+* **SST**- Square Sum of Errors from Baseline Model
+
+* **R<sup>2</sup>**- is the error difference from the Baseline model. <br>
+Formula: R<sup>2</sup>** = 1 -(SSE/SST)
+
+###Warning- SSE is not square root
+<!--#Problems
+#Hard to cmpare 2 models
+#Good models for easy problems will
+#have an R squared close to 1.
+#But good models for hard problems
+#can still have an R squared close to zero.
+#Throughout this course we will see
+#`examples of both types of problems.-->
+
+
+
