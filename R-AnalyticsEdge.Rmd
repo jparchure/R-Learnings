@@ -1,20 +1,26 @@
 ---
 title: "Analytics Edge- Takeaway Notes"
-author: "Jay Parchuré"
-date: "June 1, 2016"
+author: "Jay ParchurÃ©"
+date: "Started June 1, 2016"
 output: html_document
+
 ---
-##Linear Regression
+
+### Linear Regression ### 
+```
+lm(DV ~ IV, data)
+```
 * **Baseline Model**- A model with no variables, usually set as a measure of central tendency (Mean, median)
 
 * **SSE**- Square Sum of Errors
 
 * **SST**- Square Sum of Errors from Baseline Model
 
-* **R<sup>2</sup>**- is the error difference from the Baseline model. <br>
-Formula: R<sup>2</sup>** = 1 -(SSE/SST)
+* **R<sup>2</sup>** - is the error difference from the Baseline model. <br>
+Formula: $$R^{2} = 1 - \frac{SSE}{SST}$$
+<h4>Warning - SSE is not square root </h4>
+--------------------------------
 
-###Warning- SSE is not square root
 <!--#Problems
 #Hard to cmpare 2 models
 #Good models for easy problems will
@@ -22,7 +28,42 @@ Formula: R<sup>2</sup>** = 1 -(SSE/SST)
 #But good models for hard problems
 #can still have an R squared close to zero.
 #Throughout this course we will see
-#`examples of both types of problems.-->
+#`examples of both types of problems.
 
+Make sure the predictor values are not correlated to each other
+
+Iteratively simplify the model by removing non significant variable
+
+Predictions- predict(model, testdata)
+See summary of output, compare R2 between test and training data
+
+-->
+
+### Logistic Regression ###
+```
+glm(DV ~ IV, family=binomial)
+```
+* **Baseline Model**- In this case the most frequent outcome is chosen as the standard baseline method.
+
+* **AIC**- Used to compare Models, but only on same data. The lower the better
+
+* **Predictions**: The following formula returns probabilities of outcomes
+```
+predict(model, type="response")
+tapply(predictTrain, qualityTrain$PoorCare, mean)
+``` 
+Predictions can be calculated using a threshold value
+
+* **Confusion Matrix** Table comparing Actual and Predicted Outcomes. Can be seen by
+```
+table(actualValues, predictedValues)
+```
+* **Sensitivty**- $$\frac{TP}{TP+FN}$$
+
+* **Specificty**- $$\frac{TN}{TN+FP}$$
+
+
+
+</br>
 
 
