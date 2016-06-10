@@ -6,7 +6,7 @@ output: html_document
 
 ---
 
-### Linear Regression ### 
+### Linear Regression 
 ```
 lm(DV ~ IV, data)
 ```
@@ -39,7 +39,7 @@ See summary of output, compare R2 between test and training data
 
 -->
 
-### Logistic Regression ###
+### Logistic Regression
 ```
 glm(DV ~ IV, family=binomial)
 ```
