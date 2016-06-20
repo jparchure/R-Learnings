@@ -6,7 +6,7 @@ output: html_document
 
 ---
 
-### Linear Regression 
+### Linear Regression ### 
 ```
 lm(DV ~ IV, data)
 ```
@@ -39,7 +39,7 @@ See summary of output, compare R2 between test and training data
 
 -->
 
-### Logistic Regression
+### Logistic Regression ###
 ```
 glm(DV ~ IV, family=binomial)
 ```
@@ -49,20 +49,48 @@ glm(DV ~ IV, family=binomial)
 
 * **Predictions**: The following formula returns probabilities of outcomes
 ```
-predict(model, type="response")
+predict(model, data, type="response")
+
+#Simple Baseline Model
 tapply(predictTrain, qualityTrain$PoorCare, mean)
 ``` 
 Predictions can be calculated using a threshold value
 
-* **Confusion Matrix** Table comparing Actual and Predicted Outcomes. Can be seen by
+### Outcome Measures ###
+
+* **Confusion Matrix**- Table comparing Actual and Predicted Outcomes.
 ```
 table(actualValues, predictedValues)
 ```
-* **Sensitivty**- $$\frac{TP}{TP+FN}$$
+* All Rates are calculated with respect to **Actual Outcomes**
 
-* **Specificty**- $$\frac{TN}{TN+FP}$$
+* **Sensitivity**- **Catch All the thieves** <br>
+$$\frac{TP}{TP+FN}$$ 
+  
 
+* **Specificity**-  **Prevent all false alarms** <br>
+$$\frac{TN}{TN+FP}$$
 
+* **Accuracy**-
+$$\frac{TN + TP}{N}$$
+
+* **Error Rate**-
+$$\frac{FN+FP}{TN}$$
+
+* **False Negative Error Rate**-
+$$\frac{FN}{TP+FN}$$
+
+* **False Positive Error Rate**-
+$$\frac{FP}{TP+FN}$$
+
+* **ROC Curves**- Used when one type of error is more crucial than other types
+
+### Missing Values ###
+
+* Can be discovered using the ``` summary ``` function
+* Some approaches involve removing the rows or columns with missing values, but this way you may lose data
+* The <a href="https://cran.r-project.org/web/packages/mice/mice.pdf">MICE</a> package is very helpful for multiple imputation, which is a way of filling NA values.
+* Make sure to run multiple imputation on all fields that are affected by missing values. This may include columns that are complete in themselves but are related to other imperfect ones.
 
 </br>
 
